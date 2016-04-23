@@ -2,22 +2,11 @@ var $ = require('jquery');
 var handlebars = require('handlebars');
 var Backbone = require('backbone');
 
-
-
-app.Counter = Backbone.Model.extend({
-
-    defaults: {
-      count: 0
-    },
-
-    increment: function() {
-      this.save({
-        count: this.get('count') + 1
-      });
-    },
-
+var Like = Backbone.Model.extend({
+  like: function(){
+    this.set({'likes':this.get('likes') + 1 });
+    return this.get('likes');
+  }
 });
 
-var Counter = new app.Counter();
-
-module.exports = app.Counter;
+module.exports = Like;
